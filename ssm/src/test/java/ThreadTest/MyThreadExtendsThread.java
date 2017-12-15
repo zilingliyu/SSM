@@ -12,6 +12,7 @@ public class MyThreadExtendsThread extends Thread{
 	public void run(){
 		//编写自己线程的代码
 		//在线程执行start方法的时候就会调用该run方法
+		
 		System.out.println(Thread.currentThread().getName());
 	}
 	
@@ -23,5 +24,6 @@ public class MyThreadExtendsThread extends Thread{
 		myThread1.start();
 		myThread2.start();
 		System.out.println(Thread.currentThread().toString());
+		
 	}
 }

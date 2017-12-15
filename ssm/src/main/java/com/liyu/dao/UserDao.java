@@ -9,6 +9,6 @@ import com.liyu.entity.User;
  */
 public interface UserDao {
 
-	public abstract User findByUsername(String username);
+	public abstract User findByUsernameAndPassword(User user);
 	
 }
