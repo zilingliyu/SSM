@@ -16,9 +16,9 @@
 	
 	<!-- 定义数据源Bean -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-		<property name="url" value="jdbc:mysql://180.153.44.108:3306/testSsm" />
+		<property name="url" value="jdbc:mysql://localhost:3306/testSsm" />
 		<property name="username" value="root" />
-		<property name="password" value="liyu" />
+		<property name="password" value="1234" />
 	</bean>
 
 	<!-- 注册SqlSessionFactoryBean -->
@@ -33,6 +33,16 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.liyu.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 异常资源统一管理 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.mybatis.spring.MyBatisSystemException">error/sqlExc</prop>
+				<prop key="java.lang.Exception">error/default</prop>
+			</props>
+		</property>
 	</bean>
 	
 	<!-- 资源访问拦截设置 -->  	
